@@ -9,10 +9,10 @@ import com.example.akash.notapp.Model.Project
  */
 object DataService {
     val catergories= listOf(
-            Category("Productivity","none"),
-            Category("Entertainment","none"),
-            Category("Social Networking","none"),
-            Category("Utility","none")
+            Category("Productivity","productivity_image"),
+            Category("Entertainment","entertainment_image"),
+            Category("Social Networking","socialnetworking_image"),
+            Category("Utility","utility_image")
     )
     val language= listOf(
             Language("C++"),
