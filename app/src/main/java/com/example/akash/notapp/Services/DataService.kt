@@ -12,6 +12,18 @@ object DataService {
             Category("Productivity","productivity_image"),
             Category("Entertainment","entertainment_image"),
             Category("Social Networking","socialnetworking_image"),
+            Category("Utility","utility_image"),
+            Category("Productivity","productivity_image"),
+            Category("Entertainment","entertainment_image"),
+            Category("Social Networking","socialnetworking_image"),
+            Category("Utility","utility_image"),
+            Category("Productivity","productivity_image"),
+            Category("Entertainment","entertainment_image"),
+            Category("Social Networking","socialnetworking_image"),
+            Category("Utility","utility_image"),
+            Category("Productivity","productivity_image"),
+            Category("Entertainment","entertainment_image"),
+            Category("Social Networking","socialnetworking_image"),
             Category("Utility","utility_image")
     )
     val language= listOf(

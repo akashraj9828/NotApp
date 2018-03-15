@@ -2,6 +2,7 @@ package com.example.akash.notapp.Adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,19 +21,27 @@ class CategoryAdapter( context:Context, categories:List<Category>):BaseAdapter()
 
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+        var holder:ViewHolder=ViewHolder()
+        val categoryView:View
+        val category:Category=categories[position]
+        val logTag:String="akash"
 
-        val categoryView:View = LayoutInflater.from(context).inflate(R.layout.category_list,null)
+        if (convertView==null) {
+            categoryView = LayoutInflater.from(context).inflate(R.layout.category_list, null)
+            holder.categoryImage = categoryView.findViewById(R.id.categoryImage)
+            holder.categoryName = categoryView.findViewById(R.id.categoryName)
+            categoryView.tag=holder
+            Log.i(logTag,"New View is created for frist time: ${category.title}")
 
-        val category_image:ImageView=categoryView.findViewById(R.id.categoryImage)
-        val category_name:TextView=categoryView.findViewById(R.id.categoryName)
+        }else{
+            holder=convertView.tag as ViewHolder
+            categoryView=convertView
+            Log.i(logTag,"View Recycled: ${category.title}")
 
-        val category=categories[position]
-
-        category_name.text=category.title
-
+        }
+        holder.categoryName?.text=category.title
         val resourceId=context.resources.getIdentifier(category.image,"drawable",context.packageName)
-        category_image.setImageResource(resourceId)
-
+        holder.categoryImage?.setImageResource(resourceId)
         return categoryView
 
     }
@@ -47,6 +56,12 @@ class CategoryAdapter( context:Context, categories:List<Category>):BaseAdapter()
 
     override fun getCount(): Int {
         return categories.count()
+    }
+
+    class ViewHolder{
+        var categoryImage:ImageView?=null
+        var categoryName:TextView?=null
+
     }
 
 }
