@@ -31,12 +31,12 @@ class CategoryAdapter( context:Context, categories:List<Category>):BaseAdapter()
             holder.categoryImage = categoryView.findViewById(R.id.categoryImage)
             holder.categoryName = categoryView.findViewById(R.id.categoryName)
             categoryView.tag=holder
-            Log.i(logTag,"New View is created for frist time: ${category.title}")
+//            Log.i(logTag,"New View is created for frist time: ${category.title}")
 
         }else{
             holder=convertView.tag as ViewHolder
             categoryView=convertView
-            Log.i(logTag,"View Recycled: ${category.title}")
+//            Log.i(logTag,"View Recycled: ${category.title}")
 
         }
         holder.categoryName?.text=category.title
